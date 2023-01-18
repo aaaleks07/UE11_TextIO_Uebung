@@ -61,4 +61,36 @@ public class DiverseMethoden {
             dest.write(text.toLowerCase());
         }
     }
+
+    /**
+     * Checks the equality between <tt>srcFile1</tt> and <tt>srcFile2</tt>;
+     * @param srcFile1
+     * @param srcFile2
+     * @return equality between <tt>srcFile1</tt> and <tt>srcFile2</tt>
+     * @throws IOException
+     */
+    public static boolean compareFiles(String srcFile1, String srcFile2) throws IOException{
+        try(
+                BufferedReader fileone = Files.newBufferedReader(
+                        Paths.get(srcFile1)
+                );
+                BufferedReader filetwo = Files.newBufferedReader(
+                        Paths.get(srcFile2)
+                );
+                ){
+            String textBuffer = "";
+            String textone = "";
+            String texttwo = "";
+
+            while ((textBuffer = fileone.readLine()) != null){
+                textone += textBuffer + "\n";
+            }
+
+            while ((textBuffer = filetwo.readLine()) != null){
+                texttwo += textBuffer + "\n";
+            }
+
+            return textone.equals(texttwo);
+        }
+    }
 }

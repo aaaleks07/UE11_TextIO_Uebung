@@ -2,6 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+
+src/
 !**/Files/
 !**/nikolicaleksa/ue11_textio/TestClass.java
 
