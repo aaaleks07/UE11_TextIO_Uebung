@@ -38,7 +38,7 @@ public class DiverseMethoden {
     }
 
     /**
-     * Converts the files text to lowercase
+     * Converts the file text to lowercase
      * @param srcFile
      * @param destFile
      * @throws IOException
