@@ -8,6 +8,8 @@ public class TestClass {
     public static void main(String[] args) throws IOException {
         //convertFileToUppercase("src/Files/convertFileToUppercase.txt", "src/Files/convertFileToUppercaseDest.txt");
         //convertFileToLowerCase("src/Files/convertFileToLowercase.txt", "src/Files/convertFileToLowercaseDest.txt");
-        System.out.println(compareFiles("src/Files/compareFiles.txt", "src/Files/compareFiles2.txt"));
+        //System.out.println(compareFiles("src/Files/compareFiles.txt", "src/Files/compareFiles2.txt"));
+        //encryptFile("src/Files/encryptFile.txt", "src/Files/encryptFileDest.txt");
+        decryptFile("src/Files/encryptFileDest.txt", "src/Files/encryptFile.txt");
     }
 }

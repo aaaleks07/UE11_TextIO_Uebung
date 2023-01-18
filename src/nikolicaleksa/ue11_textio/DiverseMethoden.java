@@ -3,6 +3,7 @@ package nikolicaleksa.ue11_textio;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.Buffer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -91,6 +92,74 @@ public class DiverseMethoden {
             }
 
             return textone.equals(texttwo);
+        }
+    }
+
+    /**
+     * Encrypts the files text content with the "caeser-encryption"
+     * @param srcFile
+     * @param destFile
+     * @throws IOException
+     */
+    public static void encryptFile(String srcFile, String destFile) throws IOException{
+        try(
+                BufferedReader src = Files.newBufferedReader(
+                        Paths.get(srcFile)
+                );
+                BufferedWriter dest = Files.newBufferedWriter(
+                        Paths.get(destFile)
+                );
+                ){
+            String textBuffer = "";
+            String text = "";
+
+            while((textBuffer = src.readLine()) != null){
+                text += textBuffer + "\n";
+            }
+
+            char[] textChar = text.toCharArray();
+            String endText = "";
+            for (int i = 0; i < textChar.length; i++) {
+                textChar[i]+=3;
+                endText += textChar[i];
+            }
+
+            dest.write(endText);
+        }
+    }
+
+    /**
+     * Decrypts the files text content with the "caeser-encryption"
+     * @param srcFile
+     * @param destFile
+     * @throws IOException
+     */
+    public static void decryptFile(String srcFile, String destFile) throws IOException{
+        try(
+                BufferedReader src = Files.newBufferedReader(
+                        Paths.get(srcFile)
+                );
+                BufferedWriter dest = Files.newBufferedWriter(
+                        Paths.get(destFile)
+                );
+        ){
+            String textBuffer = "";
+            String text = "";
+
+            while((textBuffer = src.readLine()) != null){
+                text += textBuffer + "\n";
+            }
+
+            text = text.trim();
+
+            char[] textChar = text.toCharArray();
+            String endText = "";
+            for (int i = 0; i < textChar.length; i++) {
+                textChar[i]-=3;
+                endText += textChar[i];
+            }
+
+            dest.write(endText);
         }
     }
 }
