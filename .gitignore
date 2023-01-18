@@ -2,6 +2,8 @@
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
+!**/Files/
+!**/nikolicaleksa/ue11_textio/TestClass.java
 
 ### Eclipse ###
 .apt_generated
